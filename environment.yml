@@ -1,0 +1,36 @@
+name: sxs
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.8
+  - h5py
+  - ipywidgets
+  - ipykernel
+  - jupyter_contrib_nbextensions
+  - jupyterlab
+  - line_profiler
+  - memory_profiler
+  - nb_conda_kernels
+  - nodejs
+  - tqdm
+  - numpy
+  - scipy
+  - matplotlib>=2.1.1
+  - numba
+  - pandas
+  - sympy
+  - pytest
+  - pytest-cov
+  - corner
+  - qgrid
+  - pandas-datareader>=0.5.0
+  - requests-toolbelt
+  - rise
+  - quaternion
+  - quaternionic
+  - spinsfast
+  - spherical_functions
+  - spherical
+  - sxs>=2020.9.11
+  - scri
