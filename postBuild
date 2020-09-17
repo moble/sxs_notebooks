@@ -2,7 +2,7 @@
 
 set -ex
 
-jupyter labextension install @jupyter-widgets/jupyterlab-manager qgrid
+# jupyter labextension install @jupyter-widgets/jupyterlab-manager qgrid
 
 echo "
 import sxs
