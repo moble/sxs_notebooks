@@ -1,0 +1,3 @@
+figure.figsize   : 16.0, 9.0  # figure size in inches
+font.size        : 16.0
+hist.bins : auto
