@@ -2,9 +2,13 @@
 
 set -ex
 
-ls *ipynb | xargs -0 perl -i -p -e 's/^   "name": ".*"$/   "name": "conda-env-notebook-py"/g'
-
 # jupyter labextension install @jupyter-widgets/jupyterlab-manager qgrid
+
+# ls *ipynb | xargs -0 perl -i -p -e 's/^   "name": ".*"$/   "name": "conda-env-notebook-py"/g'
+
+python kernel_replacer.py
+
+/bin/rm -f README.md environment.yml kernel_replacer.py postBuild
 
 echo "
 import sxs
@@ -18,3 +22,5 @@ sxs.load('SXS:BBH:0314/Lev/metadata.json')
 sxs.load('SXS:BBH:0314/Lev/Horizons.h5')
 sxs.load('SXS:BBH:0314/Lev/rhOverM.*')
 " | python
+
+
