@@ -2,6 +2,8 @@
 
 set -ex
 
+ls *ipynb | xargs -0 perl -i -p -e 's/"name": "sxs_conda"/"name": "conda-env-notebook-py"/g'
+
 # jupyter labextension install @jupyter-widgets/jupyterlab-manager qgrid
 
 echo "
