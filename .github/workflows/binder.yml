@@ -25,8 +25,10 @@ jobs:
         run: |
           sleep 10
           # Accept nonzero return codes; 28 indicates the max time was reached, but the build started
-          curl -L --connect-timeout 10 --max-time 1200 "https://gke.mybinder.org/build/gh/moble/sxs_notebooks/master" || :
-          curl -L --connect-timeout 10 --max-time 1200 "https://ovh.mybinder.org/build/gh/moble/sxs_notebooks/master" || :
+          curl -L --connect-timeout 10 --max-time 1200 \
+            "https://gke.mybinder.org/build/gh/moble/sxs_notebooks/master" || echo "Build exceeding 20 minutes"
+          curl -L --connect-timeout 10 --max-time 1200 \
+            "https://ovh.mybinder.org/build/gh/moble/sxs_notebooks/master" || echo "Build exceeding 20 minutes"
 
       # - name: Cache build on mybinder.org
       #   uses: jupyterhub/repo2docker-action@master
