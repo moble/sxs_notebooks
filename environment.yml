@@ -29,9 +29,9 @@ dependencies:
   - requests-toolbelt
   - rise
   - quaternion
-  - quaternionic
   - spinsfast
   - spherical_functions
-  - spherical
-  - sxs>=2020.9.11
   - scri
+  - quaternionic
+  - spherical
+  - sxs
