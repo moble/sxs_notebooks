@@ -1,14 +1,27 @@
 name: binder
+
 on:
   push:
   workflow_dispatch:
 
 jobs:
-  Create-MyBinderOrg-Cache:
+  binder:
     runs-on: ubuntu-latest
     steps:
-    - name: Cache build on mybinder.org
-      uses: jupyterhub/repo2docker-action@master
-      with:
-        NO_PUSH: true
-        MYBINDERORG_TAG: ${{ github.event.ref }}
+
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Build and upload to dockerhub
+        uses: jupyterhub/repo2docker-action@master
+        with:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          BINDER_CACHE: true
+          # PUBLIC_REGISTRY_CHECK: true
+
+      # - name: Cache build on mybinder.org
+      #   uses: jupyterhub/repo2docker-action@master
+      #   with:
+      #     NO_PUSH: true
+      #     MYBINDERORG_TAG: ${{ github.event.ref }}
