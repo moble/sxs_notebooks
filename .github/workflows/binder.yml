@@ -18,7 +18,15 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           BINDER_CACHE: true
-          # PUBLIC_REGISTRY_CHECK: true
+          PUBLIC_REGISTRY_CHECK: true
+
+      - name: Trigger binder builds
+        shell: bash
+        run: |
+          sleep 10
+          # Accept nonzero return codes; 28 indicates the max time was reached, but the build started
+          curl -L --connect-timeout 10 --max-time 30 "https://gke.mybinder.org/build/gh/moble/sxs_notebooks/master" || :
+          curl -L --connect-timeout 10 --max-time 30 "https://ovh.mybinder.org/build/gh/moble/sxs_notebooks/master" || :
 
       # - name: Cache build on mybinder.org
       #   uses: jupyterhub/repo2docker-action@master
