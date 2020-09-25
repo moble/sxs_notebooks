@@ -6,7 +6,9 @@ python -m pip install --upgrade --no-deps sxs
 
 python kernel_replacer.py
 
-/bin/rm -f README.md environment.yml kernel_replacer.py postBuild
+jupyter contrib nbextension install --user
+jupyter nbextension enable --py widgetsnbextension
+jupyter labextension install @jupyter-widgets/jupyterlab-manager --minimize=False
 
 echo "
 import sxs
@@ -20,3 +22,5 @@ sxs.load('SXS:BBH:0314/Lev/metadata.json')
 sxs.load('SXS:BBH:0314/Lev/Horizons.h5')
 sxs.load('SXS:BBH:0314/Lev/rhOverM.*')
 " | python
+
+/bin/rm -f README.md environment.yml kernel_replacer.py postBuild
