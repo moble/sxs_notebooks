@@ -12,6 +12,8 @@ dependencies:
   - sxs=2024.0.1
   - numpy=1.26.4
   - matplotlib=3.9.1
-  - qgridnext=2.0.1
   - seaborn=0.13.2
   - pandas=2.2.2
+  - pip
+  - pip:
+    - qgridnext=2.0.1
